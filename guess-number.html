@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS Game</title>
+</head>
+<body>
+    <h1>Guess the Correct Number</h1>
+    <p><b>Range:</b> Between 1 - 20</p>
+    <input type="text" id="playerNum">
+    <button onclick="myFunction()">Enter</button>
+    <br>
+    <p id="statement"></p>
+
+    <script type="text/javascript">
+      var min = 1;
+      var max = 20;
+      var x = Math.floor(Math.random() * max + min);
+      var wrong = 0;
+      // document.write("Number is: " + x);
+
+      function myFunction(){
+        var y = document.getElementById('playerNum').value;
+        if(x==y) {
+          document.getElementById('statement').innerHTML = "You guessed the correct with " + wrong + " wrong attempts";
+        }
+        else if (y>x) {
+          wrong++;
+          document.getElementById('statement').innerHTML = "Your number too big";
+        }
+        else {
+          wrong++;
+          document.getElementById('statement').innerHTML = "Your number is too small";
+        }
+      }
+    </script>
+</body>
+</html>
